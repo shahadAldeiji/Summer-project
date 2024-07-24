@@ -1,0 +1,100 @@
+:root {
+  --ion-color-primary: #DDD1CB;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
+}
+.art-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+}
+
+ion-header .custom-toolbar {
+  --background: #D0BEB5; /* Header background color */
+  --color: #ffffff; /* Text color */
+}
+
+.art-card img {
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+.art-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: serif;
+}
+
+.art-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.custom-buttons {
+  width: 100%; /* Make button almost full width */
+  --background: var(--ion-color-secondary);
+  --color: #333;
+  --border-radius: 6px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-left: 6px;
+  --padding-right: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  font-family: serif;
+  margin: 0 0; /* Center the button horizontally */
+}
+
+.custom-buttons:hover {
+  --background: #c9b8b2;
+}
+
+.custom-toolbar {
+  --background: #D0BEB5; /* Header background color */
+}
+.heart-button{
+      --padding-top: 2px;
+      --padding-bottom: 2px;
+      --padding-start: 8px;
+      --padding-end: 8px;
+      --font-size: 12px;
+      width: 100px;
+      border-radius: 100%;
+      --background: var(#cbcbcb);
+      
+}
+.sub{
+  font-family: serif;
+  font-weight: bold;
+}
+.subDep{
+  font-family: sans-serif;
+}
+
+/* In home.page.scss */
+/* home.page.scss */
+
+.card-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures title and button are spaced out */
+}
+
+.card-title-container {
+  display: flex;
+  flex-direction: column; /* Stacks title and subtitle vertically */
+}
+
+ion-button {
+  margin-left: auto; /* Pushes the like button to the right */
+}
+
+.custom-buttons {
+  margin-top: 10px; /* Ensures there’s space above the View button */
+  /* Optional: Add additional styling if needed */
+}

@@ -1,0 +1,156 @@
+:root {
+    --ion-color-primary: #DDD1CB;
+  }
+  
+  ion-content {
+    --background: var(--ion-color-primary);
+  }
+  
+  .art-card {
+    height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .art-card img {
+    flex-grow: 1;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .art-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: serif;
+    justify-content: center;
+  }
+  
+  .custom-buttons {
+    width: 98%;
+    --background: var(--ion-color-secondary);
+    --color: #333;
+    --border-radius: 6px;
+    --padding-top: 6px;
+    --padding-bottom: 6px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --padding-left:3px;
+    --padding-right:3px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    font-family: serif;
+  }
+
+  .custom-toolbar {
+    --background: #D0BEB5; /* Header background color */
+  }
+  .sub{
+    font-family: serif;
+    font-weight: bold;
+    }
+  
+  .custom-back-button {
+    --color: #827670; /* Back button color */
+  }
+  
+  
+  .custom-buttons:hover {
+    --background: #c9b8b2;
+  }
+  
+  .heart-button {
+    --padding-top: 2px;
+    --padding-bottom: 2px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --font-size: 12px;
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    border-radius: 50%;
+    --color: #fff;
+  }
+  .heart-icon {
+    font-size: 24px; /* Adjust the font-size as needed */
+  }
+  
+  .sub{
+    font-family: sans-serif;
+  }
+  
+  ion-toolbar{
+    background: #ffff;
+  }
+  
+  .toolTitle{
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: serif;
+    justify-content: center;
+    color: var(black);
+  }
+  .backward{
+    color: var(black);
+  }
+  .comment-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .comment-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: serif;
+  }
+  
+  .comment-author {
+    color: #666;
+    margin-bottom: 5px;
+    font-family: serif;
+  }
+  
+  .comment-date {
+    color: #999;
+    margin-bottom: 10px;
+    font-family: serif;
+  }
+  
+  .comment-text {
+    line-height: 1.5;
+    font-family: serif;
+  }
+  
+  .comment-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-item {
+    margin-bottom: 20px;
+  }
+  
+  .submit-button {
+    color: black;
+    font-family: serif;
+    width: 100%;
+  }
+
+  .comments{
+    font-family: serif;
+    font-size: medium;
+    align-items: flex-start;
+  }
+
+  .heart-button.liked {
+    --heart-button-color: var(--ion-color-danger);
+  }

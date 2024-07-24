@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="sub">Likes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="Card container">
+    <div class="art-card" *ngFor="let painting of likedPaintings">
+      <ion-card>
+        <img [alt]="painting.title" [src]="painting.primaryImage" />
+        <ion-card-header>
+          <ion-card-title class="art-title">{{ painting.title }}</ion-card-title>
+          <ion-card-subtitle class="sub">{{ painting.artistDisplayName }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-button class="custom-buttons" (click)="goToDetailsPage(painting.objectID)">View</ion-button>  
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

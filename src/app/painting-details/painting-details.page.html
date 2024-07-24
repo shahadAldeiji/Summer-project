@@ -1,0 +1,229 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons class ='backward' slot="start">
+  <ion-back-button defaultHref="/home"></ion-back-button>
+  </ion-buttons>
+  <ion-title class="toolTitle" size="large">Painting Details</ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="painting" class="Card container">
+    <div class="art-card">
+      <ion-card>
+        <img [alt]="painting.title" [src]="painting.primaryImage" />
+        <ion-card-header>
+          <ion-list>
+            <ion-item>
+              <p><strong>Title:</strong>{{ painting.title }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Artist:</strong>{{ painting.artistDisplayName }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Art dimension:</strong>{{ painting.dimensions }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Art date:</strong>{{ painting.objectDate }}</p>
+            </ion-item>
+          </ion-list>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+
+<ion-card *ngIf="comments.length > 0">
+  <ion-card-header>
+    <ion-card-title>Comments ({{ commentCount }})</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let comment of comments">
+        <ion-label>
+          <p>{{ comment.date }} {{ comment.user }}: {{ comment.text }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="comments.length === 0">
+  <ion-card-content>
+    <p>No comments available.</p>
+  </ion-card-content>
+</ion-card>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons class='backward' slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="toolTitle" size="large">Painting Details</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons class='backward' slot="start">
+      <ion-back-button class="custom-back-button" defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="sub">Painting Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <!-- Painting Details -->
+  <div *ngIf="painting" >
+    <div class="art-card" class="Card container">
+      <ion-card>
+        <img [alt]="painting.title" [src]="painting.primaryImage" />
+        <ion-card-header>
+          <ion-list>
+            <ion-item>
+              <p><strong>Title:</strong>{{ painting.title }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Artist:</strong>{{ painting.artistDisplayName }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Art dimension:</strong>{{ painting.dimensions }}</p>
+            </ion-item>
+            <ion-item>
+              <p><strong>Art date:</strong>{{ painting.objectDate }}</p>
+            </ion-item>
+          </ion-list>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <ion-card *ngIf="comments.length > 0">
+    <ion-card-header>
+      <ion-card-title class="toolTitle">Comments ({{ commentCount }})</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let comment of comments">
+          <ion-label>
+            <p>{{ comment.creation_date }} {{ comment.username }}: {{ comment.comment }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- No Comments Message -->
+  <ion-card *ngIf="comments.length === 0">
+    <ion-card-content>
+      <p>No comments available.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Add a Comment Form -->
+   <!--
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Add a Comment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input [(ngModel)]="newComment.username" placeholder="Enter your username"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Comment</ion-label>
+        <ion-textarea [(ngModel)]="newComment.comment" placeholder="Enter your comment"></ion-textarea>
+      </ion-item>
+      
+      <ion-button expand="full" (click)="addComment()">Add Comment</ion-button>
+      <ion-button expand="full" color="medium" (click)="cancelComment()">Cancel</ion-button>
+    </ion-card-content>
+  </ion-card>-->
+  <ion-card  class="Card container">
+    <ion-card-header>
+      <ion-card-title class="toolTitle">Post a comment</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Painting details here -->
+  
+      <ion-button  class="custom-buttons" *ngIf="!showCommentForm" expand="block" (click)="toggleCommentForm()">
+        Add Comment
+      </ion-button>
+  
+      <div *ngIf="showCommentForm">
+        <form #commentForm="ngForm">
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input 
+              [(ngModel)]="newComment.username" 
+              name="username" 
+              required 
+              minlength="2" 
+              pattern="^[A-Za-z]*$" 
+              #username="ngModel">
+            </ion-input>
+          </ion-item>
+          <div *ngIf="username.invalid && (username.dirty || username.touched)">
+            <ion-text color="danger" *ngIf="username.errors?.['required']">
+              Username is required.
+            </ion-text>
+            <ion-text color="danger" *ngIf="username.errors?.['minlength']">
+              Username must be at least 2 characters long.
+            </ion-text>
+            <ion-text color="danger" *ngIf="username.errors?.['pattern']">
+              Username must not contain digits.
+            </ion-text>
+          </div>
+  
+          <ion-item>
+            <ion-label position="floating">Comment</ion-label>
+            <ion-textarea 
+              [(ngModel)]="newComment.comment" 
+              name="comment" 
+              required 
+              minlength="2" 
+              pattern="^[A-Za-z ]*$" 
+              #comment="ngModel">
+            </ion-textarea>
+          </ion-item>
+          <div *ngIf="comment.invalid && (comment.dirty || comment.touched)">
+            <ion-text color="danger" *ngIf="comment.errors?.['required']">
+              Comment is required.
+            </ion-text>
+            <ion-text color="danger" *ngIf="comment.errors?.['minlength']">
+              Comment must be at least 2 characters long.
+            </ion-text>
+            <ion-text color="danger" *ngIf="comment.errors?.['pattern']">
+              Comment must not contain digits.
+            </ion-text>
+          </div>
+  
+          <ion-button 
+          class="custom-buttons" 
+            expand="block" 
+            (click)="addComment(commentForm)" 
+            [disabled]="commentForm.invalid">
+            Send
+          </ion-button>
+          <ion-button 
+          class="custom-buttons" 
+            expand="block" 
+            (click)="cancelComment()">
+            Cancel
+          </ion-button>
+        </form>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  </ion-content>
+  
+  
+

@@ -1,0 +1,37 @@
+<!--<ion-tabs>
+  <ion-tab-bar>
+    <ion-tab-button tab="home">
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="Likes">
+    <ion-label>Likes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-tabs>
+  <ion-tab-bar>
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="Likes">
+      <ion-icon name="heart-outline"></ion-icon>
+    <ion-label>Likes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>-->
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" [ngClass]="{ 'selected': selectedTab === 'home' }" (click)="selectTab('home')">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Likes" [ngClass]="{ 'selected': selectedTab === 'likes' }" (click)="selectTab('likes')">
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Likes</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

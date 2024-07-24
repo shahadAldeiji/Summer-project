@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-toolbar">
+    <ion-title class="sub">Metropolitan Museum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="Card container">
+    <div class="art-card" *ngFor="let painting of paintings">
+      <ion-card>
+        <img [alt]="painting.title" [src]="painting.primaryImage" />
+        <ion-card-header>
+          <div class="card-header-content">
+            <div class="card-title-container">
+              <ion-card-title class="art-title">{{ painting.title }}</ion-card-title>
+              <p class="sub">{{ painting.department }}</p> 
+              <ion-card-subtitle class="sub">{{ painting.artistDisplayName || 'Unknown Artist' }}</ion-card-subtitle>
+            </div>
+            <ion-button (click)="likePainting(painting)" fill="clear" color="primary">
+              <ion-icon [name]="painting.liked ? 'heart' : 'heart-outline'" size="large"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- Content here -->
+        </ion-card-content>
+        <ion-button class="custom-buttons" (click)="goToDetailsPage(painting.objectID)">View Details</ion-button>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
